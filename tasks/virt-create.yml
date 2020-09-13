@@ -121,6 +121,7 @@
 - name: Store IP of VM
   set_fact:
     vm_ip: "{{ result_get_ip.stdout }}"
+    ansible_host: "{{ result_get_ip.stdout }}"
   when:
     - inventory_hostname not in groups['kvmhost']
     - virt_infra_state == "running"
